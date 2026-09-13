@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JirehGN | Body Splash</title>
+<style>
+:root{--bg:#fbf7f5;--ink:#191515;--muted:#766b69;--rose:#e6b6bb;--line:#eadfdb;--card:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}button{font:inherit}
+header{position:sticky;top:0;z-index:10;background:#fbf7f5e8;backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}
+.nav{max-width:1200px;margin:auto;height:72px;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:Georgia,serif;letter-spacing:.22em;font-size:22px}.links{display:flex;gap:26px;font-size:14px;color:#564c4a}
+.cartBtn{border:1px solid #d9ceca;background:white;border-radius:999px;padding:10px 15px;cursor:pointer}
+.hero{max-width:1200px;margin:auto;padding:70px 20px;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.kicker{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#987c7a}
+h1{font:500 clamp(52px,7vw,90px)/.93 Georgia,serif;margin:14px 0 22px}
+.hero p{font-size:18px;line-height:1.65;color:var(--muted);max-width:520px}
+.cta{display:inline-block;background:var(--ink);color:white;padding:14px 22px;border-radius:999px;margin-top:8px}
+.heroImg{height:560px;border-radius:32px;overflow:hidden;box-shadow:0 25px 70px #4b2f2b20}
+.heroImg img{width:100%;height:100%;object-fit:cover}
+.section{max-width:1200px;margin:auto;padding:55px 20px}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px}
+h2{font:500 45px Georgia,serif;margin:8px 0 0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 45px #4b2f2b14}
+.pic{aspect-ratio:4/5;background:#eee;overflow:hidden}.pic img{width:100%;height:100%;object-fit:cover}
+.info{padding:15px}.brand{font-size:10px;letter-spacing:.16em;color:#987c7a;text-transform:uppercase}
+.name{font:20px Georgia,serif;margin:5px 0 9px}.price{font-weight:700;font-size:17px;margin-bottom:12px}
+.buy{width:100%;border:0;background:var(--ink);color:white;border-radius:12px;padding:11px;cursor:pointer}
+.banner{margin-top:20px;background:#ecd2d2;border-radius:30px;text-align:center;padding:50px 25px}
+.banner p{color:#655858;line-height:1.6;max-width:620px;margin:10px auto 20px}
+footer{background:#191515;color:#fff;margin-top:60px;padding:45px 20px}
+.foot{max-width:1200px;margin:auto;display:flex;justify-content:space-between;gap:30px}.foot p{color:#cfc4c4}
+.drawer{position:fixed;right:0;top:0;width:min(420px,92vw);height:100vh;background:#fff;z-index:30;padding:24px;transform:translateX(105%);transition:.25s;box-shadow:-20px 0 60px #0002;display:flex;flex-direction:column}
+.drawer.open{transform:translateX(0)}.drawerHead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:15px}
+.close{border:0;background:#f0e5e3;border-radius:50%;width:36px;height:36px;cursor:pointer}
+.items{flex:1;overflow:auto}.item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid #eee}
+.item img{width:64px;height:78px;object-fit:cover;border-radius:10px}.item b{font-family:Georgia,serif}
+.checkout{border:0;background:var(--ink);color:#fff;border-radius:13px;padding:14px;cursor:pointer;margin-top:12px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.heroImg{height:430px}.grid{grid-template-columns:repeat(2,1fr)}.links{display:none}}
+@media(max-width:520px){.grid{gap:10px}.section{padding:42px 14px}.hero{padding:45px 14px}h2{font-size:35px}.name{font-size:17px}}
+</style>
+</head>
+<body>
+<header><nav class="nav"><a class="logo" href="#">JIREHGN</a>
+<div class="links"><a href="#tienda">Tienda</a><a href="#esencia">Nuestra esencia</a><a href="#contacto">Contacto</a></div>
+<button class="cartBtn" onclick="toggleCart()">Carrito · <span id="count">0</span></button></nav></header>
+
+<section class="hero">
+<div><div class="kicker">JirehGN · Body Splash</div><h1>Encontrá tu aroma.</h1>
+<p>Fragancias para acompañarte todos los días. Descubrí tu esencia favorita y elegí el Body Splash que va con vos.</p>
+<a class="cta" href="#tienda">Ver colección</a></div>
+<div class="heroImg"><img src="productos/producto-3.jpeg" alt="Body Splash JirehGN"></div>
+</section>
+
+<section class="section" id="tienda">
+<div class="head"><div><div class="kicker">Colección</div><h2>Body Splash</h2></div></div>
+<div class="grid" id="grid"></div>
+</section>
+
+<section class="section" id="esencia"><div class="banner">
+<div class="kicker">JirehGN</div><h2>Tu aroma, tu esencia.</h2>
+<p>Una selección de fragancias para cada estilo, momento y personalidad.</p>
+<a class="cta" href="#tienda">Elegir mi fragancia</a>
+</div></section>
+
+<footer id="contacto"><div class="foot"><div><div class="logo">JIREHGN</div><p>Body Splash · Fragancias</p></div><p>Pedidos y consultas<br>WhatsApp · próximamente</p></div></footer>
+
+<aside class="drawer" id="drawer"><div class="drawerHead"><h2 style="font-size:30px">Tu carrito</h2><button class="close" onclick="toggleCart()">×</button></div>
+<div class="items" id="items"></div><div id="total" style="font-weight:700;margin-top:12px"></div>
+<button class="checkout" onclick="checkout()">Finalizar pedido</button></aside>
+
+<script>
+const products=[{"id": 1, "name": "Pear Glacé", "image": "productos/producto-1.jpeg", "price": 22000}, {"id": 2, "name": "Love Spell Noir", "image": "productos/producto-2.jpeg", "price": 22000}, {"id": 3, "name": "Bare Vanilla", "image": "productos/producto-3.jpeg", "price": 22000}, {"id": 4, "name": "Blush", "image": "productos/producto-4.jpeg", "price": 22000}, {"id": 5, "name": "Temptation", "image": "productos/producto-5.jpeg", "price": 22000}, {"id": 6, "name": "Pure Seduction Sunkissed", "image": "productos/producto-6.jpeg", "price": 22000}, {"id": 7, "name": "Amber Romance Shimmer", "image": "productos/producto-7.jpeg", "price": 22000}, {"id": 8, "name": "Amber Romance", "image": "productos/producto-8.jpeg", "price": 22000}, {"id": 9, "name": "Dream", "image": "productos/producto-9.jpeg", "price": 22000}, {"id": 10, "name": "Bare Vanilla", "image": "productos/producto-10.jpeg", "price": 22000}, {"id": 11, "name": "Blush", "image": "productos/producto-11.jpeg", "price": 22000}, {"id": 12, "name": "Cake Confetti", "image": "productos/producto-12.jpeg", "price": 22000}, {"id": 13, "name": "Candy Baby", "image": "productos/producto-13.jpeg", "price": 22000}, {"id": 14, "name": "Love Spell", "image": "productos/producto-14.jpeg", "price": 22000}, {"id": 15, "name": "Glam Angel", "image": "productos/producto-15.jpeg", "price": 22000}];
+let cart=[];
+const money=n=>new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0}).format(n);
+function render(){
+document.getElementById('grid').innerHTML=products.map((p,i)=>`
+<article class="card"><div class="pic"><img src="${p.image}" alt="${p.name}"></div>
+<div class="info"><div class="brand">Victoria's Secret</div><div class="name">${p.name}</div>
+<div class="price">${money(p.price)}</div><button class="buy" onclick="add(${i})">Agregar al carrito</button></div></article>`).join('');
+}
+function add(i){cart.push(products[i]);update();}
+function update(){
+document.getElementById('count').textContent=cart.length;
+document.getElementById('items').innerHTML=cart.length?cart.map((p,i)=>`<div class="item"><img src="${p.image}"><div><b>${p.name}</b><div>${money(p.price)}</div><button onclick="cart.splice(${i},1);update()" style="margin-top:7px;border:0;background:none;text-decoration:underline;cursor:pointer">Quitar</button></div></div>`).join(''):'<p style="color:#777;line-height:1.6">Todavía no agregaste productos.</p>';
+document.getElementById('total').textContent=cart.length?'Total: '+money(cart.reduce((s,p)=>s+p.price,0)):'';
+}
+function toggleCart(){document.getElementById('drawer').classList.toggle('open');}
+function checkout(){
+if(!cart.length) return alert('Agregá al menos un producto al carrito.');
+const text='Hola JirehGN! Quiero hacer un pedido:%0A%0A'+cart.map(p=>'• '+p.name+' — '+money(p.price)).join('%0A')+'%0A%0ATotal: '+money(cart.reduce((s,p)=>s+p.price,0));
+alert('El carrito está listo. Para conectar WhatsApp falta agregar el número de JirehGN.');
+}
+render();update();
+</script>
+</body></html>
