@@ -65,7 +65,7 @@ footer{background:#191515;color:#fff;margin-top:60px;padding:45px 20px}
 <a class="cta" href="#tienda">Elegir mi fragancia</a>
 </div></section>
 
-<footer id="contacto"><div class="foot"><div><div class="logo">JIREHGN</div><p>Body Splash · Fragancias</p></div><p>Pedidos y consultas<br><a href="https://wa.me/5491159093641" target="_blank">WhatsApp · JirehGN</a></p></div></footer>
+<footer id="contacto"><div class="foot"><div><div class="logo">JIREHGN</div><p>Body Splash · Fragancias</p></div><p>Pedidos y consultas<br>WhatsApp · próximamente</p></div></footer>
 
 <aside class="drawer" id="drawer"><div class="drawerHead"><h2 style="font-size:30px">Tu carrito</h2><button class="close" onclick="toggleCart()">×</button></div>
 <div class="items" id="items"></div><div id="total" style="font-weight:700;margin-top:12px"></div>
@@ -90,14 +90,8 @@ document.getElementById('total').textContent=cart.length?'Total: '+money(cart.re
 function toggleCart(){document.getElementById('drawer').classList.toggle('open');}
 function checkout(){
 if(!cart.length) return alert('Agregá al menos un producto al carrito.');
-const text='Hola JirehGN! Quiero hacer un pedido:
-
-'+cart.map(p=>'• '+p.name+' — '+money(p.price)).join('
-')+'
-
-Total: '+money(cart.reduce((s,p)=>s+p.price,0));
-const phone='5491159093641';
-window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(text),'_blank');
+const text='Hola JirehGN! Quiero hacer un pedido:%0A%0A'+cart.map(p=>'• '+p.name+' — '+money(p.price)).join('%0A')+'%0A%0ATotal: '+money(cart.reduce((s,p)=>s+p.price,0));
+alert('El carrito está listo. Para conectar WhatsApp falta agregar el número de JirehGN.');
 }
 render();update();
 </script>
