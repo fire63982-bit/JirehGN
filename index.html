@@ -90,8 +90,10 @@ document.getElementById('total').textContent=cart.length?'Total: '+money(cart.re
 function toggleCart(){document.getElementById('drawer').classList.toggle('open');}
 function checkout(){
 if(!cart.length) return alert('Agregá al menos un producto al carrito.');
-const text='Hola JirehGN! Quiero hacer un pedido:%0A%0A'+cart.map(p=>'• '+p.name+' — '+money(p.price)).join('%0A')+'%0A%0ATotal: '+money(cart.reduce((s,p)=>s+p.price,0));
-alert('El carrito está listo. Para conectar WhatsApp falta agregar el número de JirehGN.');
+const total=cart.reduce((s,p)=>s+p.price,0);
+const text='Hola JirehGN! Quiero hacer un pedido:\\n\\n'+cart.map(p=>'• '+p.name+' — '+money(p.price)).join('\\n')+'\\n\\nTotal: '+money(total);
+const phone='5491159093641';
+window.location.href='https://wa.me/'+phone+'?text='+encodeURIComponent(text);
 }
 render();update();
 </script>
